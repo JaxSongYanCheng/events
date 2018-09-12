@@ -1,10 +1,17 @@
-package main
+package events
 
 import "fmt"
-import "./events"
+import "testing"
 
-func main() {
-	emitter := events.NewEventEmitter()
+func TestNewEventEmitter(t *testing.T){
+	emitter := NewEventEmitter()
+	if emitter == nil {
+		t.Fatal("new emitter but it is nil")
+	}
+}
+
+func test() {
+	emitter := NewEventEmitter()
 	fn1 := func(args ...interface{}) {
 		fmt.Println("1", args)
 	}
